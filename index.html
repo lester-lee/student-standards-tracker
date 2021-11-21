@@ -4,19 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <main>
-      <h1>Student Mastery by Course</h1>
-      <form class="Options">
-        <select name="Course" id="CourseSelector">
-        </select>
-        <select name="Student" id="StudentSelector">
-        </select>
-      </form>
-      <figure class="StandardsViz"></figure>
+      <h1>Student Standards Report</h1>
+      <header>
+        <form class="Options">
+          <select name="Course" id="CourseSelector"></select>
+          <select name="Student" id="StudentSelector"></select>
+        </form>
+        <div class="Legend">
+          <label class="LegendTitle">Scale</label>
+          <ol class="LegendKeys"></ol>
+        </div>
+      </header>
+      <figure id="StandardsViz"></figure>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="main.js"></script>

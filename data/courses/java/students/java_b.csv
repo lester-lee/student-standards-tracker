@@ -1,20 +1,20 @@
 mastery,code,domain,standard,weight
 0,T1,Terminal,Identify and use relative paths,1
-0,T2,Terminal,Identify and use working directory,1
-0,T3,Terminal,Identify home directory,1
-2,T4,Terminal,"Use and interpret cd, ls, and pwd commands",1
-0,T5,Terminal,Compile and run Java programs,1
-2,O1,Operators,Understand and use arithmetic operators (+-/*),1
-0,O2,Operators,Understand and use modulo operator (%),1
-0,V1,Variables,"Understand how to declare, assign, initialize variables",1
-3,V2,Variables,Understand relationship between variables and memory,1
-2,V3,Variables,"Identify appropriate variable types: String, char, int, float, double",1
-0,V4,Variables,Name and use variables appropriately for a program,1
+1,T2,Terminal,Identify and use working directory,1
+2,T3,Terminal,Identify home directory,1
+3,T4,Terminal,"Use and interpret cd, ls, and pwd commands",1
+2,T5,Terminal,Compile and run Java programs,1
+3,O1,Operators,Understand and use arithmetic operators (+-/*),1
+3,O2,Operators,Understand and use modulo operator (%),1
+1,V1,Variables,"Understand how to declare, assign, initialize variables",1
+1,V2,Variables,Understand relationship between variables and memory,1
+0,V3,Variables,"Identify appropriate variable types: String, char, int, float, double",1
+1,V4,Variables,Name and use variables appropriately for a program,1
 0,V5,Variables,Understand and use String indexes and length,1
 3,I1,Input,Understand how to use Scanner to take input from users,1
-1,I2,Input,Understand how to take different data types from users,1
-0,C1,Conditionals,Understand and use the Boolean data type,1
+3,I2,Input,Understand how to take different data types from users,1
+3,C1,Conditionals,Understand and use the Boolean data type,1
 2,C2,Conditionals,"Understand and use the logical operators !, &&, OR",1
 0,C3,Conditionals,Understand how to short-circuit boolean operators,0
 2,C4,Conditionals,Evaluate complex boolean expressions that involve logical and relational operators,1
-1,C5,Conditionals,"Read and write code that branches using if, else if, and else statements",1
+2,C5,Conditionals,"Read and write code that branches using if, else if, and else statements",1

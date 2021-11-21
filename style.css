@@ -2,22 +2,78 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  color: white;
 }
 
 html {
   box-sizing: border-box;
+  background-color: #2e2e2e;
 }
 
-.StandardsViz{
+main {
+  max-width: 960px;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+/* Visualization Header */
+main header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Legend {
+  display: flex;
+  align-items: center;
+}
+
+.LegendTitle {
+  margin-right: 20px;
+}
+
+.LegendKeys {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* Main Standards Visualization */
+#StandardsViz {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+figure {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #888;
+  border-radius: 10px;
 }
 
 .Standard {
-  width: 3vw;
-  height: 3vw;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
+  margin: 5px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.StandardLabel {
+  font-family: "Source Code Pro", monospace;
+  color: white;
+  background-color: #2e2e2e;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
