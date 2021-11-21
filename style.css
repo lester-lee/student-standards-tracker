@@ -10,13 +10,22 @@
 
 html {
   box-sizing: border-box;
-  background-color: #2e2e2e;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #2E2E2E;
+  background: -webkit-radial-gradient(bottom right, #2E2E2E, #3A3A3A);
+  background: -moz-radial-gradient(bottom right, #2E2E2E, #3A3A3A);
+  background: radial-gradient(to top left, #2E2E2E, #3A3A3A);
 }
 
 main {
   max-width: 960px;
   height: 70vh;
-  margin: 0 auto;
+  margin: 10vh auto;
 }
 
 /* Visualization Header */
@@ -24,6 +33,7 @@ main header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .Legend {
@@ -40,17 +50,38 @@ main header {
   flex-flow: row wrap;
 }
 
+.Legend .Standard {
+  width: 2em;
+  height: 2em;
+}
+
+.Legend .StandardLabel {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/* Dropdown Menus */
+select {
+  cursor: pointer;
+  background-color: #2e2e2e;
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
 /* Main Standards Visualization */
 #StandardsViz {
-  display: flex;
-  flex-flow: row wrap;
+  overflow-y: scroll;
+  scrollbar-color: #4a4a4a #1e1e1e;
+  scrollbar-width: thin;
 }
+
 
 figure {
   width: 100%;
   height: 100%;
-  border: 1px solid #888;
-  border-radius: 10px;
 }
 
 .Standard {

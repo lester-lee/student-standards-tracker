@@ -29,10 +29,7 @@ d3.select(".LegendKeys")
   .data([0, 1, 2, 3])
   .join("li")
   .attr("class", "Standard")
-  .style("background-color", (d) => masteryColorScale(d))
-  .append("span")
-  .attr("class", "StandardLabel")
-  .text(d => d);
+  .style("background-color", (d) => masteryColorScale(d));
 
 // Load in course metadata
 const courseSelector = document.querySelector("#CourseSelector");
@@ -108,7 +105,5 @@ const render = () => {
     .join("div")
     .attr("class", "Standard")
     .style("background-color", (d) => masteryColorScale(d.mastery))
-    .append("span")
-    .attr("class", "StandardLabel")
-    .text(d => d.code);
+    .html((d) => `<span class="StandardLabel">${d.code}</span>`);
 };
