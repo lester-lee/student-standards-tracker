@@ -1,21 +1,13 @@
 /*
- * Spaghetti code for now just to get the prototype up & working
+ * Spaghetti code for now just to get the prototype up & working :)
  */
-
-const TODO = null;
-// First load default course (first one in dataset + student one)
-// Load csv and convert into JS objects
-// Use d3 to bind each standard to a circle
-
 //-----------------------------
 // State Management
 //-----------------------------
 let state = {
-  currentCourseIdx: 0,
-  currentStudentIdx: 0,
-  currentStandards: [],
   courses: null,
-  students: null,
+  currentCourseIdx: 0,
+  currentStandards: [],
 };
 
 //-----------------------------
@@ -33,47 +25,69 @@ d3.json("data/courses.json").then((courses) => {
   state.courses = courses;
   updateCourseDropdown();
   updateStudentDropdown();
+  init();
 });
-
-/** Creates an option with value and text set to @name */
-const createOption = (name) => {
-  let option = document.createElement("option");
-  option.innerText = name;
-  option.value = name;
-  return option;
-};
-
-const updateCourseDropdown = () => {
-  state.courses.forEach((course) => {
-    CourseSelector.appendChild(createOption(course.title));
-  });
-};
-
-const updateStudentDropdown = () => {
-  const students = state.courses[state.currentCourseIdx].roster.map((student) =>
-    createOption(`${student.first} ${student.last}`)
-  );
-  StudentSelector.replaceChildren(...students);
-};
 
 //-----------------------------
 // Event Handlers
 //-----------------------------
+/** Creates an option with value and text set to @name */
+const createOption = (name, value) => {
+  let option = document.createElement("option");
+  option.innerText = name;
+  option.value = value;
+  return option;
+};
+
+/** Creates an option for each course */
+const updateCourseDropdown = () => {
+  state.courses.forEach((course, idx) => {
+    CourseSelector.appendChild(createOption(course.title, idx));
+  });
+};
+
+/** Creates an option for each student in current course */
+const updateStudentDropdown = () => {
+  const students = state.courses[state.currentCourseIdx].roster.map((student) =>
+    createOption(
+      `${student.first} ${student.last}`,
+      `${student.first}_${student.last}`
+    )
+  );
+  StudentSelector.replaceChildren(...students);
+};
+
+/** Change current course and update students / standards. */
+CourseSelector.addEventListener("change", (event) => {
+  state.currentCourseIdx = parseInt(event.target.value);
+  updateStudentDropdown();
+});
+
+/** Load in data for the selected student and rerender */
+StudentSelector.addEventListener("change", (event) => {
+  // Get path of masteries for selected student
+  const currentCourseName = state.courses[state.currentCourseIdx].name;
+  const studentPath = `data/courses/${currentCourseName}/students/${event.target.value}.csv`;
+
+  d3.csv(studentPath, d3.autoType).then((standards) => {
+    state.currentStandards = standards;
+    console.log("state.currentStandards :>> ", state.currentStandards);
+    render();
+  });
+});
 
 //-----------------------------
 // Render
 //-----------------------------
 
-/** This function runs once when the data is loaded */
+/** This function runs after courses are loaded */
 const init = () => {
-  // Get default options from dropdown menus
-  state.currentCourse = CourseSelector.value;
-  state.currentStudent = StudentSelector.value;
-
-  console.debug("Initial state: ", state);
-
   canvas = d3.select(".StandardsViz");
+  render();
+};
 
+/** Called whenever there is an update to data/state */
+const render = () => {
   const masteryColorScale = d3
     .scaleOrdinal()
     .domain(["0", "1", "2", "3"])
@@ -91,6 +105,3 @@ const init = () => {
     })
     .text((d) => d.code);
 };
-
-/** Called whenever there is an update to data/state */
-const render = () => {};
