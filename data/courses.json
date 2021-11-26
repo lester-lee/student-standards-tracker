@@ -1,1 +1,307 @@
-[{"name":"java","path":"E:\\school\\DATA73200 Interactive Data Viz\\project\\data\\courses\\java","roster":[{"first":"Java","last":"A"},{"first":"Java","last":"B"},{"first":"Java","last":"C"},{"first":"Java","last":"D"}],"standards":[{"mastery":"","code":"T1","domain":"Terminal","standard":"Identify and use relative paths","weight":"1"},{"mastery":"","code":"T2","domain":"Terminal","standard":"Identify and use working directory","weight":"1"},{"mastery":"","code":"T3","domain":"Terminal","standard":"Identify home directory","weight":"1"},{"mastery":"","code":"T4","domain":"Terminal","standard":"Use and interpret cd, ls, and pwd commands","weight":"1"},{"mastery":"","code":"T5","domain":"Terminal","standard":"Compile and run Java programs","weight":"1"},{"mastery":"","code":"O1","domain":"Operators","standard":"Understand and use arithmetic operators (+-/*)","weight":"1"},{"mastery":"","code":"O2","domain":"Operators","standard":"Understand and use modulo operator (%)","weight":"1"},{"mastery":"","code":"V1","domain":"Variables","standard":"Understand how to declare, assign, initialize variables","weight":"1"},{"mastery":"","code":"V2","domain":"Variables","standard":"Understand relationship between variables and memory","weight":"1"},{"mastery":"","code":"V3","domain":"Variables","standard":"Identify appropriate variable types: String, char, int, float, double","weight":"1"},{"mastery":"","code":"V4","domain":"Variables","standard":"Name and use variables appropriately for a program","weight":"1"},{"mastery":"","code":"V5","domain":"Variables","standard":"Understand and use String indexes and length","weight":"1"},{"mastery":"","code":"I1","domain":"Input","standard":"Understand how to use Scanner to take input from users","weight":"1"},{"mastery":"","code":"I2","domain":"Input","standard":"Understand how to take different data types from users","weight":"1"},{"mastery":"","code":"C1","domain":"Conditionals","standard":"Understand and use the Boolean data type","weight":"1"},{"mastery":"","code":"C2","domain":"Conditionals","standard":"Understand and use the logical operators !, &&, OR","weight":"1"},{"mastery":"","code":"C3","domain":"Conditionals","standard":"Understand how to short-circuit boolean operators","weight":"0"},{"mastery":"","code":"C4","domain":"Conditionals","standard":"Evaluate complex boolean expressions that involve logical and relational operators","weight":"1"},{"mastery":"","code":"C5","domain":"Conditionals","standard":"Read and write code that branches using if, else if, and else statements","weight":"1"}],"title":"Programming in Java"},{"name":"python","path":"E:\\school\\DATA73200 Interactive Data Viz\\project\\data\\courses\\python","roster":[{"first":"Python","last":"A"},{"first":"Python","last":"B"},{"first":"Python","last":"C"}],"standards":[{"mastery":"","code":"T1","domain":"Terminal","standard":"Identify and use relative paths","weight":"1"},{"mastery":"","code":"T2","domain":"Terminal","standard":"Identify and use working directory","weight":"1"},{"mastery":"","code":"T3","domain":"Terminal","standard":"Identify home directory","weight":"0"},{"mastery":"","code":"T4","domain":"Terminal","standard":"Use common terminal commands, such as cd and pwd","weight":"1"},{"mastery":"","code":"T5","domain":"Terminal","standard":"Execute python code files","weight":"1"},{"mastery":"","code":"P1","domain":"Python Basics","standard":"Understand and use four basic math operators and exponentiation operator (**)","weight":"1"},{"mastery":"","code":"P2","domain":"Python Basics","standard":"Understand concatenation","weight":"1"},{"mastery":"","code":"P3","domain":"Python Basics","standard":"Use input() function","weight":"1"},{"mastery":"","code":"P4","domain":"Python Basics","standard":"Understand and use len() function","weight":"1"},{"mastery":"","code":"P5","domain":"Python Basics","standard":"Initialize and use variables","weight":"1"},{"mastery":"","code":"P6","domain":"Python Basics","standard":"Cast variables and literals between data types ","weight":"1"},{"mastery":"","code":"P7","domain":"Python Basics","standard":"Debug 'TypeError: unsupported operand types for +' and 'TypeError: can only concatenate str(not int) to str' errors","weight":"1"},{"mastery":"","code":"P8","domain":"Python Basics","standard":"Debug 'SyntaxError: unexpected EOF while parsing' error","weight":"1"},{"mastery":"","code":"C1","domain":"Conditionals","standard":"Understand and use the boolean data type","weight":"1"},{"mastery":"","code":"C2","domain":"Conditionals","standard":"Understand and use the logical operators `not`, `and`, `or`","weight":"1"},{"mastery":"","code":"C3","domain":"Conditionals","standard":"Understand how to short-circuit boolean operators","weight":"0"},{"mastery":"","code":"C4","domain":"Conditionals","standard":"Read and write code that branches using `if`, `elif`, and `else` statements","weight":"1"},{"mastery":"","code":"C5","domain":"Conditionals","standard":"Understand how to read and write nested conditionals","weight":"1"}],"title":"Programming in Python"}]
+[
+  {
+    "name": "java",
+    "path": "E:\\school\\DATA73200 Interactive Data Viz\\project\\data\\courses\\java",
+    "roster": [
+      {
+        "first": "Java",
+        "last": "A"
+      },
+      {
+        "first": "Java",
+        "last": "B"
+      },
+      {
+        "first": "Java",
+        "last": "C"
+      },
+      {
+        "first": "Java",
+        "last": "D"
+      }
+    ],
+    "standards": [
+      {
+        "mastery": "",
+        "code": "T1",
+        "domain": "Terminal",
+        "standard": "Identify and use relative paths",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T2",
+        "domain": "Terminal",
+        "standard": "Identify and use working directory",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T3",
+        "domain": "Terminal",
+        "standard": "Identify home directory",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T4",
+        "domain": "Terminal",
+        "standard": "Use and interpret cd, ls, and pwd commands",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T5",
+        "domain": "Terminal",
+        "standard": "Compile and run Java programs",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "O1",
+        "domain": "Operators",
+        "standard": "Understand and use arithmetic operators (+-/*)",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "O2",
+        "domain": "Operators",
+        "standard": "Understand and use modulo operator (%)",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "V1",
+        "domain": "Variables",
+        "standard": "Understand how to declare, assign, initialize variables",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "V2",
+        "domain": "Variables",
+        "standard": "Understand relationship between variables and memory",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "V3",
+        "domain": "Variables",
+        "standard": "Identify appropriate variable types: String, char, int, float, double",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "V4",
+        "domain": "Variables",
+        "standard": "Name and use variables appropriately for a program",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "V5",
+        "domain": "Variables",
+        "standard": "Understand and use String indexes and length",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "I1",
+        "domain": "Input",
+        "standard": "Understand how to use Scanner to take input from users",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "I2",
+        "domain": "Input",
+        "standard": "Understand how to take different data types from users",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C1",
+        "domain": "Conditionals",
+        "standard": "Understand and use the Boolean data type",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C2",
+        "domain": "Conditionals",
+        "standard": "Understand and use the logical operators !, &&, OR",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C3",
+        "domain": "Conditionals",
+        "standard": "Understand how to short-circuit boolean operators",
+        "weight": "0"
+      },
+      {
+        "mastery": "",
+        "code": "C4",
+        "domain": "Conditionals",
+        "standard": "Evaluate complex boolean expressions that involve logical and relational operators",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C5",
+        "domain": "Conditionals",
+        "standard": "Read and write code that branches using if, else if, and else statements",
+        "weight": "1"
+      }
+    ],
+    "title": "Programming in Java"
+  },
+  {
+    "name": "python",
+    "path": "E:\\school\\DATA73200 Interactive Data Viz\\project\\data\\courses\\python",
+    "roster": [
+      {
+        "first": "Python",
+        "last": "A"
+      },
+      {
+        "first": "Python",
+        "last": "B"
+      },
+      {
+        "first": "Python",
+        "last": "C"
+      }
+    ],
+    "standards": [
+      {
+        "mastery": "",
+        "code": "T1",
+        "domain": "Terminal",
+        "standard": "Identify and use relative paths",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T2",
+        "domain": "Terminal",
+        "standard": "Identify and use working directory",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T3",
+        "domain": "Terminal",
+        "standard": "Identify home directory",
+        "weight": "0"
+      },
+      {
+        "mastery": "",
+        "code": "T4",
+        "domain": "Terminal",
+        "standard": "Use common terminal commands, such as cd and pwd",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "T5",
+        "domain": "Terminal",
+        "standard": "Execute python code files",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P1",
+        "domain": "Python Basics",
+        "standard": "Understand and use four basic math operators and exponentiation operator (**)",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P2",
+        "domain": "Python Basics",
+        "standard": "Understand concatenation",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P3",
+        "domain": "Python Basics",
+        "standard": "Use input() function",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P4",
+        "domain": "Python Basics",
+        "standard": "Understand and use len() function",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P5",
+        "domain": "Python Basics",
+        "standard": "Initialize and use variables",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P6",
+        "domain": "Python Basics",
+        "standard": "Cast variables and literals between data types ",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P7",
+        "domain": "Python Basics",
+        "standard": "Debug 'TypeError: unsupported operand types for +' and 'TypeError: can only concatenate str(not int) to str' errors",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "P8",
+        "domain": "Python Basics",
+        "standard": "Debug 'SyntaxError: unexpected EOF while parsing' error",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C1",
+        "domain": "Conditionals",
+        "standard": "Understand and use the boolean data type",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C2",
+        "domain": "Conditionals",
+        "standard": "Understand and use the logical operators `not`, `and`, `or`",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C3",
+        "domain": "Conditionals",
+        "standard": "Understand how to short-circuit boolean operators",
+        "weight": "0"
+      },
+      {
+        "mastery": "",
+        "code": "C4",
+        "domain": "Conditionals",
+        "standard": "Read and write code that branches using `if`, `elif`, and `else` statements",
+        "weight": "1"
+      },
+      {
+        "mastery": "",
+        "code": "C5",
+        "domain": "Conditionals",
+        "standard": "Understand how to read and write nested conditionals",
+        "weight": "1"
+      }
+    ],
+    "title": "Programming in Python"
+  }
+]

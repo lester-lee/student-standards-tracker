@@ -7,6 +7,7 @@
 let state = {
   courses: null,
   currentCourseIdx: 0,
+  domains: [],
   currentStandards: [],
 };
 
@@ -79,6 +80,8 @@ const loadStandards = (student) => {
 
   d3.csv(studentPath, d3.autoType).then((standards) => {
     state.currentStandards = standards;
+    state.domains = Array.from(d3.group(standards, (s) => s.domain));
+    state.domains.reverse();
     render();
   });
 };
@@ -99,11 +102,24 @@ studentSelector.addEventListener("change", (event) => {
 //-----------------------------
 /** Called whenever there is an update to data/state */
 const render = () => {
-  let standards = canvas
-    .selectAll(".Standard")
-    .data(state.currentStandards)
+  let domains = canvas
+    .selectAll(".Domain")
+    .data(state.domains)
     .join("div")
-    .attr("class", "Standard")
-    .style("background-color", (d) => masteryColorScale(d.mastery))
-    .html((d) => `<span class="StandardLabel">${d.code}</span>`);
+    .attr("class", "Domain")
+    .style("border", "1px solid red;")
+    .html(
+      (d) =>
+        `<h3 class="DomainLabel">${d[0]}</h3><ol class="Standards"></ol`
+    )
+    .each(function (standards) {
+      d3.select(this)
+        .select(".Standards")
+        .selectAll(".Standard")
+        .data(standards[1])
+        .join("li")
+        .attr("class", "Standard")
+        .style("background-color", (d) => masteryColorScale(d.mastery))
+        .html((d) => `<span class="StandardLabel">${d.code}</span>`);
+    });
 };
