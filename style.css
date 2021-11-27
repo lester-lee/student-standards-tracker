@@ -62,6 +62,17 @@ main header {
   height: 1.5em;
 }
 
+/* Tooltip */
+.Tooltip {
+  position: fixed;
+  background-color: white;
+  color: var(--darkGray);
+  border: 2px solid black;
+  border-radius: .5em;
+  max-width: 25em;
+  padding: .5em;
+}
+
 /* Dropdown Menus */
 select {
   cursor: pointer;

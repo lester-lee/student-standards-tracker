@@ -32,6 +32,12 @@ d3.select(".LegendKeys")
   .attr("class", "Standard")
   .style("background-color", (d) => masteryColorScale(d));
 
+// Add a tooltip
+const tooltip = canvas
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "Tooltip");
+
 // Load in course metadata
 const courseSelector = document.querySelector("#CourseSelector");
 const studentSelector = document.querySelector("#StudentSelector");
@@ -97,6 +103,24 @@ studentSelector.addEventListener("change", (event) => {
   loadStandards(event.target.value);
 });
 
+// Mouse and keyboard events for tooltip
+// Three function that change the tooltip when user hover / move / leave a cell
+const onMouseOver = (d) => {
+  tooltip.style("opacity", 1);
+  //d3.select(this).style("stroke", "black").style("opacity", 1);
+};
+const onMouseMove = (event, standard) => {
+  const [mouseX, mouseY] = d3.pointer(event, canvas);
+  tooltip
+    .text(`${standard.code}: ${standard.standard}`)
+    .style("left", `${mouseX}px`)
+    .style("top", `${mouseY + 18}px`);
+};
+const onMouseLeave = (d) => {
+  tooltip.style("opacity", 0);
+  //d3.select(this).style("stroke", "none").style("opacity", 0.8);
+};
+
 //-----------------------------
 // Render
 //-----------------------------
@@ -109,8 +133,7 @@ const render = () => {
     .attr("class", "Domain")
     .style("border", "1px solid red;")
     .html(
-      (d) =>
-        `<h3 class="DomainLabel">${d[0]}</h3><ol class="Standards"></ol`
+      (d) => `<h3 class="DomainLabel">${d[0]}</h3><ol class="Standards"></ol`
     )
     .each(function (standards) {
       d3.select(this)
@@ -120,6 +143,9 @@ const render = () => {
         .join("li")
         .attr("class", "Standard")
         .style("background-color", (d) => masteryColorScale(d.mastery))
-        .html((d) => `<span class="StandardLabel">${d.code}</span>`);
+        .html((d) => `<span class="StandardLabel">${d.code}</span>`)
+        .on("mouseover", onMouseOver)
+        .on("mousemove", onMouseMove)
+        .on("mouseleave", onMouseLeave);
     });
 };
