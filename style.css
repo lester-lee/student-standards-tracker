@@ -1,3 +1,5 @@
+/*#region Base Styles */
+
 :root {
   --darkGray: #2e2e2e;
   --lightGray: #3a3a3a;
@@ -24,13 +26,20 @@ body {
   background: var(--darkGray);
 }
 
-main {
+ol,
+ul {
+  list-style: none;
+}
+
+/*#endregion Base Styles */
+
+.main {
   max-width: 960px;
   height: 70vh;
   margin: 10vh auto;
 }
 
-/* Visualization Header */
+/*#region Visualization Header */
 main header {
   display: flex;
   justify-content: space-between;
@@ -62,7 +71,9 @@ main header {
   height: 1.5em;
 }
 
-/* Tooltip */
+/*#endregion Visualization Header */
+
+/*#region Tooltip */
 .Tooltip {
   position: fixed;
   background-color: white;
@@ -73,7 +84,9 @@ main header {
   padding: .5em;
 }
 
-/* Dropdown Menus */
+/*#endregion Tooltip */
+
+/*#region Dropdown Menus */
 select {
   cursor: pointer;
   background-color: var(--darkGray);
@@ -84,8 +97,20 @@ select {
   margin-right: 10px;
 }
 
-/* Main Standards Visualization */
+/*#endregion Dropdown Menus */
+
+/*#region Dashboard */
+.Dashboard {
+  display: flex;
+  flex-flow: row;
+}
+
+/*#endregion Dashboard */
+
+/*#region Main Standards Visualization*/
+
 #StandardsViz {
+  flex: 1;
   overflow-y: auto;
   scrollbar-color: #4a4a4a #1e1e1e;
   scrollbar-width: thin;
@@ -145,3 +170,16 @@ figure {
   justify-content: center;
   align-items: center;
 }
+
+/*#endregion Main Standards Visualization*/
+
+/*#region Standards List */
+#StandardsList {
+  width: 60%;
+}
+
+.ListStandardLabel.--active {
+  background-color: yellow;
+}
+
+/*#endregion Standards List */
