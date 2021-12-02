@@ -1,19 +1,19 @@
 mastery,code,domain,standard,weight
-2,T1,Terminal,Identify and use relative paths,1
-1,T2,Terminal,Identify and use working directory,1
-3,T3,Terminal,Identify home directory,0
+3,T1,Terminal,Identify and use relative paths,1
+3,T2,Terminal,Identify and use working directory,1
+1,T3,Terminal,Identify home directory,0
 2,T4,Terminal,"Use common terminal commands, such as cd and pwd",1
-2,T5,Terminal,Execute python code files,1
-3,P1,Python Basics,Understand and use four basic math operators and exponentiation operator (**),1
-0,P2,Python Basics,Understand concatenation,1
-0,P3,Python Basics,Use input() function,1
+3,T5,Terminal,Execute python code files,1
+1,P1,Python Basics,Understand and use four basic math operators and exponentiation operator (**),1
+2,P2,Python Basics,Understand concatenation,1
+1,P3,Python Basics,Use input() function,1
 2,P4,Python Basics,Understand and use len() function,1
-2,P5,Python Basics,Initialize and use variables,1
-1,P6,Python Basics,Cast variables and literals between data types ,1
-2,P7,Python Basics,Debug 'TypeError: unsupported operand types for +' and 'TypeError: can only concatenate str(not int) to str' errors,1
-2,P8,Python Basics,Debug 'SyntaxError: unexpected EOF while parsing' error,1
-0,C1,Conditionals,Understand and use the boolean data type,1
-3,C2,Conditionals,"Understand and use the logical operators `not`, `and`, `or`",1
-2,C3,Conditionals,Understand how to short-circuit boolean operators,0
+1,P5,Python Basics,Initialize and use variables,1
+3,P6,Python Basics,Cast variables and literals between data types ,1
+3,P7,Python Basics,Debug 'TypeError: unsupported operand types for +' and 'TypeError: can only concatenate str(not int) to str' errors,1
+0,P8,Python Basics,Debug 'SyntaxError: unexpected EOF while parsing' error,1
+3,C1,Conditionals,Understand and use the boolean data type,1
+0,C2,Conditionals,"Understand and use the logical operators `not`, `and`, `or`",1
+1,C3,Conditionals,Understand how to short-circuit boolean operators,0
 1,C4,Conditionals,"Read and write code that branches using `if`, `elif`, and `else` statements",1
-0,C5,Conditionals,Understand how to read and write nested conditionals,1
+1,C5,Conditionals,Understand how to read and write nested conditionals,1
