@@ -2,7 +2,7 @@
  * Spaghetti code for now just to get the prototype up & working :)
  */
 //-----------------------------
-// State Management
+//#region State Management
 //-----------------------------
 let state = {
   courses: null,
@@ -11,14 +11,22 @@ let state = {
   studentDomains: [],
   currentStudentStandards: [],
 };
+//#endregion
 
 //-----------------------------
-// Setup
+//#region Setup
 //-----------------------------
+
 // Canvas elements
 let studentStandards = d3.select("#StudentStandards");
 let standardsList = d3.select("#StandardsList");
 let courseStandards = d3.select("#CourseStandards");
+
+const toggleButton = document.querySelector("#ToggleSideView");
+
+const courseSelector = document.querySelector("#CourseSelector");
+const studentSelector = document.querySelector("#StudentSelector");
+
 const WIDTH = 800;
 const HEIGHT = 600;
 
@@ -42,15 +50,14 @@ const tooltip = studentStandards
   .attr("class", "Tooltip");
 
 // Load in course metadata
-const courseSelector = document.querySelector("#CourseSelector");
-const studentSelector = document.querySelector("#StudentSelector");
 d3.json("data/courses.json").then((courses) => {
   state.courses = courses;
   updateCourseDropdown();
 });
+//#endregion
 
 //-----------------------------
-// Event Handlers
+//#region Event Handlers
 //-----------------------------
 /** Creates an option with value and text set to @name */
 const createOption = (name, value) => {
@@ -123,6 +130,12 @@ studentSelector.addEventListener("change", (event) => {
   loadStandards(event.target.value);
 });
 
+/** Toggle between summary view vs list view */
+toggleButton.addEventListener("click", (event) => {
+  document.querySelector("#CourseStandards").classList.toggle("--active");
+  document.querySelector("#StandardsList").classList.toggle("--active");
+});
+
 // Mouse and keyboard events for tooltip
 // Three function that change the tooltip when user hover / move / leave a cell
 const onMouseEnter = (event, standard) => {
@@ -143,8 +156,10 @@ const onMouseLeave = (event, standard) => {
   standardInfo.classList.toggle("--active");
 };
 
+//#endregion
+
 //-----------------------------
-// Render
+//#region Render
 //-----------------------------
 const renderStandards = (container, data) => {
   container
@@ -208,3 +223,5 @@ const render = () => {
   renderCourseStandards();
   renderStandardsList();
 };
+
+//#endregion Render
