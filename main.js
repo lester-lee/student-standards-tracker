@@ -22,6 +22,10 @@ let studentStandards = d3.select("#StudentStandards");
 let standardsList = d3.select("#StandardsList");
 let courseStandards = d3.select("#CourseStandards");
 
+// Student Information Elements
+const studentName = document.querySelector(".StudentName");
+const studentStats = document.querySelector(".StudentStats");
+
 //const toggleButton = document.querySelector("#ToggleSideView");
 
 const courseSelector = document.querySelector("#CourseSelector");
@@ -91,11 +95,31 @@ const updateStudentDropdown = () => {
 
   // Load default student
   const student = studentSelector.firstChild.value;
-  loadStandards(student);
+  updateStudentInformation(student);
 };
 
-/** Updates current standards in state to match student */
-const loadStandards = (student) => {
+/** Updates student information to match selected student */
+const updateStudentInformation = (student) => {
+  // Helper function to calculate student stats
+  const countStandards = (standards) => (mastery) => {
+    const count = standards.filter((s) => s.mastery == mastery).length;
+    const elem = document.createElement("span");
+    elem.style.backgroundColor = masteryColorScale(mastery);
+    elem.innerText = `${count}/${standards.length}`;
+    return elem;
+  };
+
+  const listStandard = (code, mastery) => {
+    const elem = document.createElement("span");
+    elem.className = "Standard";
+    elem.innerText = code;
+    elem.style.backgroundColor = masteryColorScale(mastery);
+    return elem;
+  };
+
+  // Update text to show student name
+  studentName.innerText = student.replace("_", " ");
+
   // Get path of masteries for selected student
   const currentCourseName = state.courses[state.currentCourseIdx].name;
   const studentPath = `data/courses/${currentCourseName}/students/${student}.csv`;
@@ -105,6 +129,26 @@ const loadStandards = (student) => {
     state.studentDomains = Array.from(d3.group(standards, (s) => s.domain));
     state.studentDomains.reverse();
     render();
+
+    document
+      .querySelector(".StudentStatsCounts")
+      .replaceChildren(...[1, 2, 3].map(countStandards(standards)));
+
+    document
+      .querySelector(".StudentStatsList.--1")
+      .replaceChildren(
+        ...standards
+          .filter((s) => s.mastery == 1)
+          .map((s) => listStandard(s.code, 1))
+      );
+
+    document
+      .querySelector(".StudentStatsList.--2")
+      .replaceChildren(
+        ...standards
+          .filter((s) => s.mastery == 2)
+          .map((s) => listStandard(s.code, 2))
+      );
   });
 };
 
@@ -125,7 +169,7 @@ courseSelector.addEventListener("change", (event) => {
 
 /** Load in data for the selected student and rerender */
 studentSelector.addEventListener("change", (event) => {
-  loadStandards(event.target.value);
+  updateStudentInformation(event.target.value);
 });
 
 /** Toggle between summary view vs list view */
@@ -149,8 +193,8 @@ const onMouseMove = (event, standard) => {
   const [mouseX, mouseY] = d3.pointer(event, studentStandards);
   tooltip
     .text(`${standard.code}: ${standard.standard}`)
-    .style("left", `${mouseX + 20}px`)
-    .style("top", `${mouseY - 25}px`);
+    .style("left", `${mouseX - 30}px`)
+    .style("top", `${mouseY + 20}px`);
 };
 const onMouseLeave = (event, standard) => {
   tooltip.style("opacity", 0);

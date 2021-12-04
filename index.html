@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
   </head>
 
@@ -28,18 +28,19 @@
     <main class="Dashboard">
       <div class="Tooltip">Hover over a standard to see more information!</div>
       <section class="StudentInformation">
-        <ol class="DomainList" id="StudentStandards">
-          <h2>Student Name</h2>
-        </ol>
+        <div>
+          <h2 class="StudentName">Student Name</h2>
+          <ol class="DomainList" id="StudentStandards"></ol>
+        </div>
         <ol class="StudentStats">
-          <li>[ ] 10/24 [ ] 8/24 [ ] 6/24</li>
-          <li>The following standards should be reviewed:</li>
-          <li>D1, D2, D3, S2, S4, S5, M1</li>
+          <li class="StudentStatsCounts"></li>
+          <li>The following standards have not yet been met</li>
+          <li class="StudentStatsList --1"></li>
+          <li class="StudentStatsList --2"></li>
+          <li>Hover over a standard on the left to see more information</li>
         </ol>
       </section>
-      <section class="CourseInformation">
-
-      </section>
+      <section class="CourseInformation"></section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="main.js"></script>

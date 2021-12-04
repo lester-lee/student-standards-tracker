@@ -49,10 +49,10 @@ ul {
 .Card {
   border: 1px solid var(--darkGray);
   border-radius: 0.5rem;
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: var(--white);
   box-shadow: 0px 3px 3px 0px #3a3a3a88;
-  margin-bottom: .5rem;
+  margin: 0.3rem;
 }
 /*#endregion Template Styles */
 
@@ -112,17 +112,54 @@ select {
 /*#endregion Dashboard */
 
 /*#region Student Information */
-.Student{
-  &Information > ol {
-    margin: 0 1rem;
+.Student {
+  &Information {
+    & > div {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
   }
 
-  &Stats li {
+  &Name {
     @extend .Card;
+    text-align: center;
+  }
+
+  &Stats {
+    width: 50%;
+    & li {
+      @extend .Card;
+      flex: 1;
+      display: flex;
+      flex-flow: row wrap;
+      text-align: center;
+    }
+
+    &Counts {
+      justify-content: center;
+      span {
+        margin: 0 0.75rem;
+        padding: 0 0.75rem;
+      }
+    }
+
+    &List {
+      span {
+      font-family: "Source Code Pro", monospace;
+    }}
   }
 }
-
 /*#endregion Student Information */
+
+/*#region Course Information */
+.Course {
+  &Information {
+    @extend .Card;
+    height: 300px;
+  }
+}
+/*#endregion Course Information */
 
 /*#region Main Standards Visualization*/
 
@@ -167,7 +204,7 @@ select {
   align-items: center;
   justify-content: center;
 
-  cursor: default;
+  cursor: text;
 
   &Label {
     font-family: "Source Code Pro", monospace;
