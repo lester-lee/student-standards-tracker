@@ -18,7 +18,7 @@
     <main>
       <header>
         <form class="Options">
-          <select name="Course" id="CourseSelector"></select>
+          <select name="Student" id="StudentSelector"></select>
         </form>
         <!-- <h1>Standards Report</h1> -->
         <div class="Legend">
@@ -26,13 +26,20 @@
         </div>
         <button id="ToggleSideView">Toggle</button>
         <form class="Options">
-          <select name="Student" id="StudentSelector"></select>
+          <select name="Course" id="CourseSelector"></select>
         </form>
       </header>
       <section class="Dashboard">
-        <figure id="CourseStandards" class="--active"></figure>
-        <ol id="StandardsList"></ol>
-        <figure id="StudentStandards"></figure>
+        <section>
+          <div class="Tooltip">
+            Hover over a standard to see more information!
+          </div>
+          <ol class="DomainList" id="StudentStandards"></ol>
+        </section>
+        <section>
+          <ol class="DomainList --active" id="CourseStandards"></ol>
+          <!-- <ol class="--active" id="StandardsList"></ol> -->
+        </section>
       </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>

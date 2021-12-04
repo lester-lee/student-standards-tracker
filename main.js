@@ -22,7 +22,7 @@ let studentStandards = d3.select("#StudentStandards");
 let standardsList = d3.select("#StandardsList");
 let courseStandards = d3.select("#CourseStandards");
 
-const toggleButton = document.querySelector("#ToggleSideView");
+//const toggleButton = document.querySelector("#ToggleSideView");
 
 const courseSelector = document.querySelector("#CourseSelector");
 const studentSelector = document.querySelector("#StudentSelector");
@@ -32,22 +32,20 @@ const HEIGHT = 600;
 
 const masteryColorScale = d3
   .scaleOrdinal()
-  .domain([0, 3])
-  .range(["#de425b", "#dbc667", "#79ab62", "#488f31"]);
+  .domain([1, 2, 3])
+  .range(["#eae0af", "#dec9c8", "#abb0d3" /*, "#7c9ed5"*/]);
 
 // Set up legend
 d3.select(".LegendKeys")
   .selectAll(".LegendKeys .Standard")
-  .data([0, 1, 2, 3])
+  .data([1, 2, 3])
   .join("li")
   .attr("class", "Standard")
-  .style("background-color", (d) => masteryColorScale(d));
+  .style("background-color", (d) => masteryColorScale(d))
+  .text((d) => d);
 
 // Add a tooltip
-const tooltip = studentStandards
-  .append("div")
-  .style("opacity", 0)
-  .attr("class", "Tooltip");
+const tooltip = d3.select(".Tooltip").style("opacity", "0");
 
 // Load in course metadata
 d3.json("data/courses.json").then((courses) => {
@@ -131,17 +129,21 @@ studentSelector.addEventListener("change", (event) => {
 });
 
 /** Toggle between summary view vs list view */
+/*
 toggleButton.addEventListener("click", (event) => {
   document.querySelector("#CourseStandards").classList.toggle("--active");
   document.querySelector("#StandardsList").classList.toggle("--active");
 });
+*/
 
 // Mouse and keyboard events for tooltip
 // Three function that change the tooltip when user hover / move / leave a cell
 const onMouseEnter = (event, standard) => {
   tooltip.style("opacity", 1);
+  /*
   const standardInfo = document.querySelector(`#${standard.code}`);
   standardInfo.classList.toggle("--active");
+  */
 };
 const onMouseMove = (event, standard) => {
   const [mouseX, mouseY] = d3.pointer(event, studentStandards);
@@ -152,8 +154,10 @@ const onMouseMove = (event, standard) => {
 };
 const onMouseLeave = (event, standard) => {
   tooltip.style("opacity", 0);
+  /*
   const standardInfo = document.querySelector(`#${standard.code}`);
   standardInfo.classList.toggle("--active");
+  */
 };
 
 //#endregion
@@ -165,10 +169,11 @@ const renderStandards = (container, data) => {
   container
     .selectAll(".Domain")
     .data(data)
-    .join("div")
+    .join("li")
     .attr("class", "Domain")
     .html(
-      (d) => `<h3 class="DomainLabel">${d[0]}</h3><ol class="Standards"></ol>`
+      //(d) => `<h3 class="DomainLabel">${d[0]}</h3><ol class="Standards"></ol>`
+      (d) => `<ol class="Standards"></ol>`
     )
     .each(function (standards) {
       d3.select(this)

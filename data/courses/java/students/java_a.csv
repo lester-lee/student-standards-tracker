@@ -1,20 +1,33 @@
 mastery,code,domain,standard,weight
-1,T1,Terminal,Identify and use relative paths,1
-2,T2,Terminal,Identify and use working directory,1
-1,T3,Terminal,Identify home directory,1
-1,T4,Terminal,"Use and interpret cd, ls, and pwd commands",1
-1,T5,Terminal,Compile and run Java programs,1
-1,O1,Operators,Understand and use arithmetic operators (+-/*),1
-0,O2,Operators,Understand and use modulo operator (%),1
-0,V1,Variables,"Understand how to declare, assign, initialize variables",1
-0,V2,Variables,Understand relationship between variables and memory,1
-1,V3,Variables,"Identify appropriate variable types: String, char, int, float, double",1
-2,V4,Variables,Name and use variables appropriately for a program,1
-0,V5,Variables,Understand and use String indexes and length,1
-0,I1,Input,Understand how to use Scanner to take input from users,1
-3,I2,Input,Understand how to take different data types from users,1
-2,C1,Conditionals,Understand and use the Boolean data type,1
-0,C2,Conditionals,"Understand and use the logical operators !, &&, OR",1
-3,C3,Conditionals,Understand how to short-circuit boolean operators,0
-1,C4,Conditionals,Evaluate complex boolean expressions that involve logical and relational operators,1
-3,C5,Conditionals,"Read and write code that branches using if, else if, and else statements",1
+3,T1,Terminal,Use terminal to run Python programs,1
+2,T2,Terminal,Identify and use relative and absolute paths,1
+3,G1,Git,Understand and use Git to update website,1
+2,M1,Markdown,Understand and write Markdown for website blog posts,1
+3,P1,Python,"Understand and write basic Python including variables, conditionals, loops, functions",1
+1,P2,Python,Understand and use lists to organize data,1
+2,P3,Python,Understand and use dictionaries to organize data,1
+3,P4,Python,Understand how to open and read files,1
+3,P5,Python,Understand how to use csv module and readers to process csv data,1
+2,P6,Python,Write clear and comprehensive comments,1
+1,P7,Python,Use functions to avoid repeating code,1
+2,P8,Python,Use and write classes to organize information,1
+3,S1,Statistics,"Identify population, sample frame, sample given a question",1
+2,S2,Statistics,Understand and explain reasons for replication crisis,1
+2,S3,Statistics,Identify and correctly use different types of data,1
+1,S4,Statistics,Analyze pro/cons of sampling methodologies,1
+1,S5,Statistics,Identify and analyze sampling bias,1
+3,S6,Statistics,Critically analyze scientific method and experiment design,1
+2,A1,API,Understand how clients connect to servers via HTTP,1
+2,A2,API,Identify base url and endpoints of an API,1
+1,A3,API,Use Python requests module to send API GET requests,1
+2,A4,API,Understand HTTP status codes and adapt code accordingly,1
+3,D1,Descriptive Statistics,Understand what descriptive statistics can and cannot describe,1
+2,D2,Descriptive Statistics,Create and intrepret histograms,1
+2,D3,Descriptive Statistics,Create and intrepret categorical bar charts,1
+2,D4,Descriptive Statistics,Use appropriate visualizations for different types of data,1
+3,D5,Descriptive Statistics,Read and interpret shape and skew of histograms,1
+2,D6,Descriptive Statistics,"Interpret measures of center: mean, median, mode",1
+1,D7,Descriptive Statistics,"Intrepret measures of variability: range, deviation, standard deviation",1
+2,D8,Descriptive Statistics,Read and intrepret boxplots and violinplots,1
+2,D9,Descriptive Statistics,Use the 1.5IQR rule to screen for potential outliers,1
+1,D10,Descriptive Statistics,Interpret an observation's z-score,1

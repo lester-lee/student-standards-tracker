@@ -16,9 +16,9 @@ const DUMMY = true; // TODO: Should probably use yargs but this works for now
  */
 const generateMasteries = (standards) => {
   standards.forEach((s) => {
-    s.mastery = DUMMY ? Math.floor(Math.random() * 4) : 0;
+    s.mastery = DUMMY ? Math.floor(Math.random() * 3) + 1 : 0;
     if (s.mastery < 3) {
-      s.mastery += Math.random() > 0.9 ? 1 : 0;
+      s.mastery += Math.random() > 0.8 ? 1 : 0;
     } // So not as many 0s
   });
   return standards;
