@@ -10,36 +10,35 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
     <title>Document</title>
   </head>
 
   <body>
-    <main>
-      <header>
-        <form class="Options">
-          <select name="Student" id="StudentSelector"></select>
-        </form>
-        <!-- <h1>Standards Report</h1> -->
-        <div class="Legend">
-          <ol class="LegendKeys"></ol>
-        </div>
-        <button id="ToggleSideView">Toggle</button>
-        <form class="Options">
-          <select name="Course" id="CourseSelector"></select>
-        </form>
-      </header>
-      <section class="Dashboard">
-        <section>
-          <div class="Tooltip">
-            Hover over a standard to see more information!
-          </div>
-          <ol class="DomainList" id="StudentStandards"></ol>
-        </section>
-        <section>
-          <ol class="DomainList --active" id="CourseStandards"></ol>
-          <!-- <ol class="--active" id="StandardsList"></ol> -->
-        </section>
+    <header>
+      <h1>Course Progress</h1>
+      <form class="Options">
+        <select name="Student" id="StudentSelector"></select>
+        <select name="Course" id="CourseSelector"></select>
+      </form>
+      <div class="Legend">
+        <ol class="LegendKeys"></ol>
+      </div>
+    </header>
+    <main class="Dashboard">
+      <div class="Tooltip">Hover over a standard to see more information!</div>
+      <section class="StudentInformation">
+        <ol class="DomainList" id="StudentStandards">
+          <h2>Student Name</h2>
+        </ol>
+        <ol class="StudentStats">
+          <li>[ ] 10/24 [ ] 8/24 [ ] 6/24</li>
+          <li>The following standards should be reviewed:</li>
+          <li>D1, D2, D3, S2, S4, S5, M1</li>
+        </ol>
+      </section>
+      <section class="CourseInformation">
+
       </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>

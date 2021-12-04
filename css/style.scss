@@ -1,11 +1,18 @@
+---
+---
+
 /*#region Base Styles */
 
 :root {
   --darkGray: #2e2e2e;
   --lightGray: #3a3a3a;
+  --background: #efefef;
   --white: #fff;
+
   --standardWidth: 2.5rem;
   --leftWidth: calc(11 * var(--standardWidth) + 2px);
+
+  --mainWidth: 960px;
 }
 
 *,
@@ -28,7 +35,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: var(--white);
+  background: var(--background);
 }
 
 ol,
@@ -38,12 +45,19 @@ ul {
 
 /*#endregion Base Styles */
 
-main {
-  margin: 5vh 5vw;
+/*#region Template Styles */
+.Card {
+  border: 1px solid var(--darkGray);
+  border-radius: 0.5rem;
+  padding: .5rem;
+  background-color: var(--white);
+  box-shadow: 0px 3px 3px 0px #3a3a3a88;
+  margin-bottom: .5rem;
 }
+/*#endregion Template Styles */
 
 /*#region Visualization Header */
-main header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,27 +67,14 @@ main header {
 .Legend {
   display: flex;
   align-items: center;
+  &Title {
+    margin-right: 20px;
+  }
+  &Keys {
+    display: flex;
+    flex-flow: row wrap;
+  }
 }
-
-.LegendTitle {
-  margin-right: 20px;
-}
-
-.LegendKeys {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.Legend .Standard {
-  width: 2em;
-  height: 2em;
-}
-
-.Legend .StandardLabel {
-  width: 1.5em;
-  height: 1.5em;
-}
-
 /*#endregion Visualization Header */
 
 /*#region Tooltip */
@@ -85,7 +86,6 @@ main header {
   border: 2px solid var(--darkGray);
   border-radius: 0.5em;
 }
-
 /*#endregion Tooltip */
 
 /*#region Dropdown Menus */
@@ -96,21 +96,33 @@ select {
   border-radius: 5px;
   margin-right: 10px;
 }
-
 /*#endregion Dropdown Menus */
 
 /*#region Dashboard */
 .Dashboard {
-  display: flex;
-  flex-flow: row;
-}
-
-.Dashboard section {
+  width: var(--mainWidth);
+  margin: 0 auto;
   display: flex;
   flex-flow: column;
+  & > section {
+    display: flex;
+    width: 100%;
+  }
+}
+/*#endregion Dashboard */
+
+/*#region Student Information */
+.Student{
+  &Information > ol {
+    margin: 0 1rem;
+  }
+
+  &Stats li {
+    @extend .Card;
+  }
 }
 
-/*#endregion Dashboard */
+/*#endregion Student Information */
 
 /*#region Main Standards Visualization*/
 
@@ -121,30 +133,24 @@ select {
 
 /* Domain Groups */
 .DomainList {
-  width: var(--leftWidth);
-  height: 60vh;
-  overflow-y: auto;
-  border: 1px solid var(--darkGray);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0px 3px 3px 0px #3a3a3a88;
+  @extend .Card;
 }
 
 .Domain {
   display: flex;
   min-height: 1.5rem;
-}
 
-.DomainLabel {
-  font-weight: normal;
-  font-size: 1rem;
-  text-align: right;
+  &Label {
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: right;
 
-  overflow: hidden;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  width: 7rem;
-  margin-right: 0.2rem;
+    width: 7rem;
+    margin-right: 0.2rem;
+  }
 }
 
 .Standards {
@@ -162,26 +168,27 @@ select {
   justify-content: center;
 
   cursor: default;
-}
 
-.StandardLabel {
-  font-family: "Source Code Pro", monospace;
-  /* background-color: var(--white); */
-  /* width: 2em;
-  height: 2em; */
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &Label {
+    font-family: "Source Code Pro", monospace;
+    /* background-color: var(--white); */
+    /* width: 2em;
+    height: 2em; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 /*#endregion Main Standards Visualization*/
 
 /*#region Course Standards */
 #CourseStandards {
   visibility: collapse;
-}
-#CourseStandards.--active {
-  visibility: visible;
+
+  &.--active {
+    visibility: visible;
+  }
 }
 /*#endregion Course Standards */
 
@@ -191,19 +198,9 @@ select {
   max-height: 80vh;
   padding: 1em 2em;
   overflow-y: scroll;
-}
 
-#StandardsList.--active {
-  visibility: visible;
+  &.--active {
+    visibility: visible;
+  }
 }
-
-.ListStandardLabel {
-  border: 1px solid var(--darkGray);
-  padding-left: 1em;
-}
-
-.ListStandardLabel.--active {
-  border: 1px solid yellow;
-}
-
 /*#endregion Standards List */

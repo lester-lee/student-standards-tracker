@@ -149,8 +149,8 @@ const onMouseMove = (event, standard) => {
   const [mouseX, mouseY] = d3.pointer(event, studentStandards);
   tooltip
     .text(`${standard.code}: ${standard.standard}`)
-    .style("left", `${mouseX - 80}px`)
-    .style("top", `${mouseY + 30}px`);
+    .style("left", `${mouseX + 20}px`)
+    .style("top", `${mouseY - 25}px`);
 };
 const onMouseLeave = (event, standard) => {
   tooltip.style("opacity", 0);
