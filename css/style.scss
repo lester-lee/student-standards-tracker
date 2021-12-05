@@ -156,9 +156,25 @@ select {
 .Course {
   &Information {
     @extend .Card;
-    height: 300px;
+  }
+
+  &Distributions {
+    display: flex;
+    flex-flow: row wrap;
   }
 }
+
+.Distribution {
+  display: flex;
+  flex-flow: column;
+  margin: .5em;
+  &Bars {
+    display: flex;
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+
 /*#endregion Course Information */
 
 /*#region Main Standards Visualization*/
@@ -218,16 +234,6 @@ select {
   }
 }
 /*#endregion Main Standards Visualization*/
-
-/*#region Course Standards */
-#CourseStandards {
-  visibility: collapse;
-
-  &.--active {
-    visibility: visible;
-  }
-}
-/*#endregion Course Standards */
 
 /*#region Standards List */
 #StandardsList {

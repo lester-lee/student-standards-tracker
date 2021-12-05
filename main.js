@@ -11,6 +11,17 @@ let state = {
   studentDomains: [],
   currentStudentStandards: [],
 };
+
+// Helper methods to process state
+
+/** Return [standard:{mastery:#}] for standards of current course*/
+const generateStandardsFrequencies = () => {
+  const course = state.courses[state.currentCourseIdx];
+  return course.standards.map((s) => {
+    return { mastery: s.mastery, code: s.code };
+  });
+};
+
 //#endregion
 
 //-----------------------------
@@ -26,6 +37,10 @@ let courseStandards = d3.select("#CourseStandards");
 const studentName = document.querySelector(".StudentName");
 const studentStats = document.querySelector(".StudentStats");
 
+// Course Aggregate Elements
+const courseInformation = d3.select(".CourseInformation");
+const courseDistributions = document.querySelector(".CourseDistributions");
+
 //const toggleButton = document.querySelector("#ToggleSideView");
 
 const courseSelector = document.querySelector("#CourseSelector");
@@ -36,7 +51,7 @@ const HEIGHT = 600;
 
 const masteryColorScale = d3
   .scaleOrdinal()
-  .domain([1, 2, 3])
+  .domain(["1", "2", "3"])
   .range(["#eae0af", "#dec9c8", "#abb0d3" /*, "#7c9ed5"*/]);
 
 // Set up legend
@@ -207,6 +222,37 @@ const onMouseLeave = (event, standard) => {
 //#endregion
 
 //-----------------------------
+//#region Bar Charts
+//-----------------------------
+const generateChart = (standard) => {
+  // Create the containing chart
+  const chart = document.createElement("div");
+  chart.className = "Distribution";
+
+  const barsElem = document.createElement("div");
+  barsElem.className = "DistributionBars";
+  // Create bars for each mastery
+  let bars = [];
+  for (const [mastery, count] of Object.entries(standard.mastery)) {
+    const bar = document.createElement("div");
+    bar.className = "DistributionBar";
+    bar.style.backgroundColor = masteryColorScale(mastery);
+    bar.style.flex = count;
+    bars.push(bar);
+  }
+  barsElem.replaceChildren(...bars);
+  chart.append(barsElem);
+
+  // Add a label at the bottom
+  const label = document.createElement("span");
+  label.innerText = standard.code;
+  chart.append(label);
+  return chart;
+};
+
+//#endregion Bar Charts
+
+//-----------------------------
 //#region Render
 //-----------------------------
 const renderStandards = (container, data) => {
@@ -266,11 +312,19 @@ const renderStandardsList = () => {
     });
 };
 
+const renderStandardsDistributions = () => {
+  const distribution = generateStandardsFrequencies();
+  courseDistributions.replaceChildren(
+    ...distribution.map((d) => generateChart(d))
+  );
+};
+
 /** Called whenever there is an update to data/state */
 const render = () => {
   renderStudentStandards();
   renderCourseStandards();
   renderStandardsList();
+  renderStandardsDistributions();
 };
 
 //#endregion Render
