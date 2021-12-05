@@ -173,6 +173,11 @@ const loadCourseStandards = () => {
 
   state.courseDomains = Array.from(d3.group(course.standards, (s) => s.domain));
   state.courseDomains.reverse();
+
+  // Update course distributions label
+  d3.select(".CourseDistributionsLabel").text(
+    `Class Distributions for ${course.title}`
+  );
 };
 
 /** Change current course and update students / standards. */

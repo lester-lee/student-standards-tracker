@@ -16,13 +16,15 @@
 
   <body>
     <header>
-      <h1>Course Progress</h1>
-      <form class="Options">
-        <select name="Student" id="StudentSelector"></select>
-        <select name="Course" id="CourseSelector"></select>
-      </form>
-      <div class="Legend">
-        <ol class="LegendKeys"></ol>
+      <div>
+        <form class="Options">
+          <select name="Student" id="StudentSelector"></select>
+          <select name="Course" id="CourseSelector"></select>
+        </form>
+        <h1>Class Tracker</h1>
+        <div class="Legend">
+          <ol class="LegendKeys"></ol>
+        </div>
       </div>
     </header>
     <main class="Dashboard">
@@ -41,9 +43,10 @@
         </ol>
       </section>
       <section class="CourseInformation">
-        <ol class="CourseDistributions">
-
-        </ol>
+        <div>
+          <h2 class="CourseDistributionsLabel"></h2>
+          <ol class="CourseDistributions"></ol>
+        </div>
       </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>

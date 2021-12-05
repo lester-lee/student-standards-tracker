@@ -32,10 +32,9 @@ html {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
   background: var(--background);
+  padding-bottom: 5rem;
+  padding-top: 3rem;
 }
 
 ol,
@@ -58,13 +57,26 @@ ul {
 
 /*#region Visualization Header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  background-color: var(--background);
+  box-shadow: 0 3px 5px 0 #3a3a3a88;
+  div {
+    width: var(--mainWidth);
+    height: 2.5rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    form, h1 {
+      flex: 2;
+    }
+  }
 }
 
 .Legend {
+  flex: 1;
   display: flex;
   align-items: center;
   &Title {
@@ -106,7 +118,6 @@ select {
   flex-flow: column;
   & > section {
     display: flex;
-    width: 100%;
   }
 }
 /*#endregion Dashboard */
@@ -146,8 +157,9 @@ select {
 
     &List {
       span {
-      font-family: "Source Code Pro", monospace;
-    }}
+        font-family: "Source Code Pro", monospace;
+      }
+    }
   }
 }
 /*#endregion Student Information */
@@ -167,11 +179,18 @@ select {
 .Distribution {
   display: flex;
   flex-flow: column;
-  margin: .5em;
+  &:not(:last-child) {
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+  }
   &Bars {
     display: flex;
-    width: 1.5em;
-    height: 1.5em;
+    width: 2em;
+    height: 2em;
+  }
+  span {
+    width: 100%;
+    text-align: center;
   }
 }
 
