@@ -1,3 +1,5 @@
+---
+---
 /*
  * Spaghetti code for now just to get the prototype up & working :)
  */
@@ -67,7 +69,7 @@ d3.select(".LegendKeys")
 const tooltip = d3.select(".Tooltip").style("opacity", "0");
 
 // Load in course metadata
-d3.json("data/courses.json").then((courses) => {
+d3.json("{{site.baseurl}}/data/courses.json").then((courses) => {
   state.courses = courses;
   updateCourseDropdown();
 });
@@ -137,7 +139,7 @@ const updateStudentInformation = (student) => {
 
   // Get path of masteries for selected student
   const currentCourseName = state.courses[state.currentCourseIdx].name;
-  const studentPath = `data/courses/${currentCourseName}/students/${student}.csv`;
+  const studentPath = `{{site.baseurl}}/data/courses/${currentCourseName}/students/${student}.csv`;
 
   d3.csv(studentPath, d3.autoType).then((standards) => {
     state.currentStudentStandards = standards;
