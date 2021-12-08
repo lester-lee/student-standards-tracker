@@ -1,55 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Student Standards Tracker</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <div>
-        <form class="Options">
-          <select name="Student" id="StudentSelector"></select>
-          <select name="Course" id="CourseSelector"></select>
-        </form>
-        <h1>Class Tracker</h1>
-        <div class="Legend">
-          <ol class="LegendKeys"></ol>
+        <div>
+            <form class="Options">
+                <select name="Student" id="StudentSelector"></select>
+                <select name="Course" id="CourseSelector"></select>
+            </form>
+            <h1>Standards Tracker</h1>
+            <div class="Legend">
+                <ol class="LegendKeys"></ol>
+            </div>
         </div>
-      </div>
     </header>
     <main class="Dashboard">
-      <div class="Tooltip">Hover over a standard to see more information!</div>
-      <section class="StudentInformation">
-        <div>
-          <h2 class="StudentName">Student Name</h2>
-          <ol class="DomainList" id="StudentStandards"></ol>
-        </div>
-        <ol class="StudentStats">
-          <li>Hover over a standard on the left to see more information</li>
-          <li class="StudentStatsCounts"></li>
-          <li>The following standards have not yet been met</li>
-          <li class="StudentStatsList --1"></li>
-          <li class="StudentStatsList --2"></li>
-        </ol>
-      </section>
-      <section class="CourseInformation">
-        <div>
-          <h2 class="CourseDistributionsLabel"></h2>
-          <ol class="CourseDistributions"></ol>
-        </div>
-      </section>
+        <div class="Tooltip">Hover over a standard to see more information!</div>
+        <section class="StudentInformation">
+            <div>
+                <h2 class="StudentName">Student Name</h2>
+                <ol class="DomainList" id="StudentStandards"></ol>
+            </div>
+            <ol class="StudentStats">
+                <li>Hover over a standard on the left to see more information!</li>
+                <li class="StudentStatsCounts"></li>
+                <li>The following standards have not yet been met:</li>
+                <li class="StudentStatsList --1"></li>
+                <li class="StudentStatsList --2"></li>
+            </ol>
+        </section>
+        <section class="CourseInformation">
+            <div>
+                <h2 class="CourseDistributionsLabel"></h2>
+                <ol class="CourseDistributions"></ol>
+            </div>
+        </section>
     </main>
+    <article class="Modal" id="Help">
+        <div class="ModalContent">
+            <span class="ModalClose">✕</span>
+            <h2>Help</h2>
+            <h3>Selection</h3>
+            <p>There are dropdown menus at the top of the page that allow the viewer to choose individual students or
+                courses.</p>
+            <h3>Student View (top)</h3>
+            <p>On the left side of the student view is a heatmap that gives an overview of a single student's mastery of
+                each standard. Viewers can tell at a glance which standards a student has met, and which standards a
+                student should work on.</p>
+            <p>The right side provides another view of the same data, sorted by mastery. This allows for a more focused
+                understanding of which standards the student has not yet met.</p>
+            <h3>Course View (bottom)</h3>
+            <p>On the bottom is aggregrate information about the selected course. It shows the ratio of student mastery
+                for each standard, and at a glance provides viewers with an understanding of which standards the class
+                as a whole has met or not yet met.</p>
+        </div>
+    </article>
+    <article class="Modal" id="About">
+        <div class="ModalContent">
+            <span class="ModalClose">✕</span>
+            <h2>About This Project</h2>
+            <p>Hi! I'm <a href="https://www.lester-lee.com">Lester Lee</a>, and this is my final project for <a
+                    href="https://gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Masters-Programs/Data-Analysis-and-Visualization">Interactive
+                    Data Visualization</a> taught by <a href="https://elliefrymire.com">Ellie Frymire</a> in Fall 2021.
+            </p>
+            <p>This is a proof-of-concept project for an app that can be used by educators to keep track of student
+                progress in their courses, as well as to provide accessible and visual feedback to students.</p>
+
+            <p>More information about this project and my process can be found on the <a
+                    href="https://www.lester-lee.com/Interactive-Data-Vis-Fall2021/project/">porfolio page.</a></p>
+            <h3>Data Sources</h3>
+            <p>The data used for this visualization is publically accessible <a>on Github.</a></p>
+            <p>This data is currently randomized to protect the privacy of my students; while no "real" analysis can be
+                done
+                on the publically available data, this is a tool that I use to analyze the grades of my current
+                students.</p>
+        </div>
+    </article>
+    <footer>
+        <nav>
+            <a class="ModalLink" value="Help">Help</a>
+            <a class="ModalLink" value="About">About</a>
+        </nav>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="main.js"></script>
-  </body>
+</body>
+
 </html>
