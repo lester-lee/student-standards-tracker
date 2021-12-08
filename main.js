@@ -140,7 +140,7 @@ const updateStudentInformation = (student) => {
 
   // Get path of masteries for selected student
   const currentCourseName = state.courses[state.currentCourseIdx].name;
-  const studentPath = `${dataURL}/courses/${currentCourseName}/students/${student}.csv`;
+  const studentPath = `${dataURL}/courses/${currentCourseName}/students/${student.toLowerCase()}.csv`;
 
   d3.csv(studentPath, d3.autoType).then((standards) => {
     state.currentStudentStandards = standards;
