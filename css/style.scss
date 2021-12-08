@@ -1,197 +1,220 @@
 ---
 ---
-
 /*#region Base Styles */
 
 :root {
-  --darkGray: #2e2e2e;
-  --lightGray: #3a3a3a;
-  --background: #efefef;
-  --white: #fff;
+    --darkGray: #2e2e2e;
+    --lightGray: #3a3a3a;
+    --background: #efefef;
+    --white: #fff;
 
-  --standardWidth: 2.5rem;
-  --leftWidth: calc(11 * var(--standardWidth) + 2px);
+    --standardWidth: 2.5rem;
+    --leftWidth: calc(11 * var(--standardWidth) + 2px);
 
-  --mainWidth: 960px;
+    --mainWidth: 960px;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
-  padding: 0;
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  color: var(--darkGray);
-  scrollbar-color: #7c9ed5 var(--white);
-  scrollbar-width: thin;
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    color: var(--darkGray);
+    scrollbar-color: #7c9ed5 var(--white);
+    scrollbar-width: thin;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  padding-bottom: 5rem;
-  padding-top: 3rem;
+    background: var(--background);
+    padding-bottom: 5rem;
+    padding-top: 3rem;
 }
 
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 
+a {
+    color: #7c9ed5;
+}
+
+p {
+    margin: .5em 0;
+}
 /*#endregion Base Styles */
 
 /*#region Template Styles */
 .Card {
-  border: 1px solid var(--darkGray);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  background-color: var(--white);
-  box-shadow: 0px 3px 3px 0px #3a3a3a88;
-  margin: 0.3rem;
+    border: 1px solid var(--darkGray);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--white);
+    box-shadow: 0px 3px 3px 0px #3a3a3a88;
+    margin: 0.3rem;
 }
+
 /*#endregion Template Styles */
 
 /*#region Visualization Header */
 header {
-  position: fixed;
-  width: 100vw;
-  top: 0;
-  background-color: var(--background);
-  box-shadow: 0 3px 5px 0 #3a3a3a88;
-  div {
-    width: var(--mainWidth);
-    height: 2.5rem;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    form, h1 {
-      flex: 2;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    background-color: var(--background);
+    box-shadow: 0 3px 5px 0 #3a3a3a88;
+
+    div {
+        width: var(--mainWidth);
+        height: 2.5rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        form,
+        h1 {
+            flex: 2;
+        }
     }
-  }
 }
 
 .Legend {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  &Title {
-    margin-right: 20px;
-  }
-  &Keys {
+    flex: 1;
     display: flex;
-    flex-flow: row wrap;
-  }
+    align-items: center;
+
+    &Title {
+        margin-right: 20px;
+    }
+
+    &Keys {
+        display: flex;
+        flex-flow: row wrap;
+    }
 }
+
 /*#endregion Visualization Header */
 
 /*#region Tooltip */
 .Tooltip {
-  position: fixed;
-  width: var(--leftWidth);
-  padding: 0.5em;
-  background-color: var(--white);
-  border: 2px solid var(--darkGray);
-  border-radius: 0.5em;
+    position: fixed;
+    width: var(--leftWidth);
+    padding: 0.5em;
+    background-color: var(--white);
+    border: 2px solid var(--darkGray);
+    border-radius: 0.5em;
 }
+
 /*#endregion Tooltip */
 
 /*#region Dropdown Menus */
 select {
-  /* cursor: pointer; */
-  border: 1px solid white;
-  padding: 5px;
-  border-radius: 5px;
-  margin-right: 10px;
+    /* cursor: pointer; */
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
 }
+
 /*#endregion Dropdown Menus */
 
 /*#region Dashboard */
 .Dashboard {
-  width: var(--mainWidth);
-  margin: 0 auto;
-  display: flex;
-  flex-flow: column;
-  & > section {
+    width: var(--mainWidth);
+    margin: 0 auto;
     display: flex;
-  }
+    flex-flow: column;
+
+    &>section {
+        display: flex;
+    }
 }
+
 /*#endregion Dashboard */
 
 /*#region Student Information */
 .Student {
-  &Information {
-    & > div {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
-  }
-
-  &Name {
-    @extend .Card;
-    text-align: center;
-  }
-
-  &Stats {
-    width: 50%;
-    & li {
-      @extend .Card;
-      flex: 1;
-      display: flex;
-      flex-flow: row wrap;
-      text-align: center;
+    &Information {
+        &>div {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
     }
 
-    &Counts {
-      justify-content: center;
-      span {
-        margin: 0 0.75rem;
-        padding: 0 0.75rem;
-      }
+    &Name {
+        @extend .Card;
+        text-align: center;
     }
 
-    &List {
-      span {
-        font-family: "Source Code Pro", monospace;
-      }
+    &Stats {
+        width: 50%;
+
+        & li {
+            @extend .Card;
+            flex: 1;
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+
+        &Counts {
+            justify-content: center;
+
+            span {
+                margin: 0 0.75rem;
+                padding: 0 0.75rem;
+            }
+        }
+
+        &List {
+            span {
+                font-family: "Source Code Pro", monospace;
+            }
+        }
     }
-  }
 }
+
 /*#endregion Student Information */
 
 /*#region Course Information */
 .Course {
-  &Information {
-    @extend .Card;
-  }
+    &Information {
+        @extend .Card;
+    }
 
-  &Distributions {
-    display: flex;
-    flex-flow: row wrap;
-  }
+    &Distributions {
+        display: flex;
+        flex-flow: row wrap;
+    }
 }
 
 .Distribution {
-  display: flex;
-  flex-flow: column;
-  &:not(:last-child) {
-    margin-right: 1em;
-    margin-bottom: 0.5em;
-  }
-  &Bars {
     display: flex;
-    width: 2em;
-    height: 2em;
-  }
-  span {
-    width: 100%;
-    text-align: center;
-  }
+    flex-flow: column;
+
+    &:not(:last-child) {
+        margin-right: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    &Bars {
+        display: flex;
+        width: 2em;
+        height: 2em;
+    }
+
+    span {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /*#endregion Course Information */
@@ -199,70 +222,110 @@ select {
 /*#region Main Standards Visualization*/
 
 #StandardsViz {
-  flex: 1;
-  overflow-y: auto;
+    flex: 1;
+    overflow-y: auto;
 }
 
 /* Domain Groups */
 .DomainList {
-  @extend .Card;
+    @extend .Card;
 }
 
 .Domain {
-  display: flex;
-  min-height: 1.5rem;
+    display: flex;
+    min-height: 1.5rem;
 
-  &Label {
-    font-weight: normal;
-    font-size: 1rem;
-    text-align: right;
+    &Label {
+        font-weight: normal;
+        font-size: 1rem;
+        text-align: right;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
-    width: 7rem;
-    margin-right: 0.2rem;
-  }
+        width: 7rem;
+        margin-right: 0.2rem;
+    }
 }
 
 .Standards {
-  display: flex;
-  flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 /* Standards */
 .Standard {
-  width: 2.5rem;
-  height: 1.5rem;
+    width: 2.5rem;
+    height: 1.5rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: text;
-
-  &Label {
-    font-family: "Source Code Pro", monospace;
-    /* background-color: var(--white); */
-    /* width: 2em;
-    height: 2em; */
-    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    justify-content: center;
+
+    cursor: text;
+
+    &Label {
+        font-family: "Source Code Pro", monospace;
+        /* background-color: var(--white); */
+        /* width: 2em;
+    height: 2em; */
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
+
 /*#endregion Main Standards Visualization*/
 
-/*#region Standards List */
-#StandardsList {
-  visibility: collapse;
-  max-height: 80vh;
-  padding: 1em 2em;
-  overflow-y: scroll;
+/*#region Modals */
 
-  &.--active {
-    visibility: visible;
-  }
+.Modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.3);
+    z-index: 1;
+
+    &.--active {
+        display: block;
+    }
+
+    &Content {
+        @extend .Card;
+        width: 35em;
+        margin: 25% auto;
+        transform: translateY(-50%);
+        z-index: 2;
+    }
+
+    &Close {
+        position: absolute;
+        top: .25rem;
+        right: .5rem;
+        cursor: pointer;
+        font-size: 1.5em;
+    }
+
+    &Link {
+        cursor: pointer;
+    }
 }
-/*#endregion Standards List */
+
+/*#endregion Modals */
+
+/*#region Footer */
+footer {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.5em;
+    nav a {
+        margin: 0 1rem;
+    }
+}
+
+/*#endregion Footer */
