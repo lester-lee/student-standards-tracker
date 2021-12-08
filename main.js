@@ -73,10 +73,10 @@ d3.select(".LegendKeys")
 const tooltip = d3.select(".Tooltip").style("opacity", "0");
 
 // Load in course metadata
-d3.json(dataURL+"/courses.json").then((courses) => {
-  state.courses = courses;
-  updateCourseDropdown();
-
+d3.json(dataURL + "/courses.json").then((courses) => {
+    state.courses = courses;
+    updateCourseDropdown();
+});
 //#endregion
 
 //-----------------------------
@@ -142,56 +142,56 @@ const updateStudentDropdown = () => {
 
 /** Updates student information to match selected student */
 const updateStudentInformation = (student) => {
-  // Helper function to calculate student stats
-  const countStandards = (standards) => (mastery) => {
-    const count = standards.filter((s) => s.mastery == mastery).length;
-    const elem = document.createElement("span");
-    elem.style.backgroundColor = masteryColorScale(mastery);
-    elem.innerText = `${count}/${standards.length}`;
-    return elem;
-  };
+    // Helper function to calculate student stats
+    const countStandards = (standards) => (mastery) => {
+        const count = standards.filter((s) => s.mastery == mastery).length;
+        const elem = document.createElement("span");
+        elem.style.backgroundColor = masteryColorScale(mastery);
+        elem.innerText = `${count}/${standards.length}`;
+        return elem;
+    };
 
-  const listStandard = (code, mastery) => {
-    const elem = document.createElement("span");
-    elem.className = "Standard";
-    elem.innerText = code;
-    elem.style.backgroundColor = masteryColorScale(mastery);
-    return elem;
-  };
+    const listStandard = (code, mastery) => {
+        const elem = document.createElement("span");
+        elem.className = "Standard";
+        elem.innerText = code;
+        elem.style.backgroundColor = masteryColorScale(mastery);
+        return elem;
+    };
 
-  // Update text to show student name
-  studentName.innerText = student.replace("_", " ");
+    // Update text to show student name
+    studentName.innerText = student.replace("_", " ");
 
-  // Get path of masteries for selected student
-  const currentCourseName = state.courses[state.currentCourseIdx].name;
-  const studentPath = `${dataURL}/courses/${currentCourseName}/students/${student.toLowerCase()}.csv`;
+    // Get path of masteries for selected student
+    const currentCourseName = state.courses[state.currentCourseIdx].name;
+    const studentPath = `${dataURL}/courses/${currentCourseName}/students/${student.toLowerCase()}.csv`;
 
-  d3.csv(studentPath, d3.autoType).then((standards) => {
-    state.currentStudentStandards = standards;
-    state.studentDomains = Array.from(d3.group(standards, (s) => s.domain));
-    state.studentDomains.reverse();
-    render();
+    d3.csv(studentPath, d3.autoType).then((standards) => {
+        state.currentStudentStandards = standards;
+        state.studentDomains = Array.from(d3.group(standards, (s) => s.domain));
+        state.studentDomains.reverse();
+        render();
 
-    document
-      .querySelector(".StudentStatsCounts")
-      .replaceChildren(...[1, 2, 3].map(countStandards(standards)));
+        document
+            .querySelector(".StudentStatsCounts")
+            .replaceChildren(...[1, 2, 3].map(countStandards(standards)));
 
-    document
-      .querySelector(".StudentStatsList.--1")
-      .replaceChildren(
-        ...standards
-          .filter((s) => s.mastery == 1)
-          .map((s) => listStandard(s.code, 1))
-      );
+        document
+            .querySelector(".StudentStatsList.--1")
+            .replaceChildren(
+                ...standards
+                .filter((s) => s.mastery == 1)
+                .map((s) => listStandard(s.code, 1))
+            );
 
-    document
-      .querySelector(".StudentStatsList.--2")
-      .replaceChildren(
-        ...standards
-          .filter((s) => s.mastery == 2)
-          .map((s) => listStandard(s.code, 2))
-      );
-  });
+        document
+            .querySelector(".StudentStatsList.--2")
+            .replaceChildren(
+                ...standards
+                .filter((s) => s.mastery == 2)
+                .map((s) => listStandard(s.code, 2))
+            );
+    });
 };
 
 /** Updates current course standards to show summary data */
